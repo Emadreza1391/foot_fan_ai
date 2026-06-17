@@ -1,59 +1,18 @@
-const particles = document.getElementById("particles");
+window.addEventListener("scroll",()=>{
 
-for(let i=0;i<70;i++){
+const cards=document.querySelectorAll(".card");
 
-let p = document.createElement("div");
+cards.forEach(card=>{
 
-p.classList.add("particle");
+const top=card.getBoundingClientRect().top;
 
-p.style.position="absolute";
+if(top<window.innerHeight-100){
 
-p.style.width="4px";
-
-p.style.height="4px";
-
-p.style.background="#00d4ff";
-
-p.style.borderRadius="50%";
-
-p.style.left=Math.random()*100+"%";
-
-p.style.top=Math.random()*100+"%";
-
-p.style.opacity=Math.random();
-
-p.style.animation=`move ${5+Math.random()*10}s infinite linear`;
-
-particles.appendChild(p);
+card.style.opacity="1";
+card.style.transform="translateY(0px)";
 
 }
 
-const style = document.createElement("style");
+});
 
-style.innerHTML=`
-
-@keyframes move{
-
-0%{
-
-transform:translateY(0px);
-
-}
-
-50%{
-
-transform:translateY(-100px);
-
-}
-
-100%{
-
-transform:translateY(0px);
-
-}
-
-}
-
-`;
-
-document.head.appendChild(style);
+});
