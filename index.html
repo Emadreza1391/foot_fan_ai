@@ -1,130 +1,419 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
-
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>فوت و فن AI | یادگیری هوش مصنوعی به زبان ساده</title>
 
-<title>فوت و فن AI</title>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700;800&display=swap" rel="stylesheet">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
 
-<link rel="stylesheet" href="css/style.css">
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Vazirmatn',sans-serif;
+}
+
+body{
+background:#050816;
+color:white;
+overflow-x:hidden;
+}
+
+/* پس زمینه متحرک */
+
+body::before{
+content:"";
+position:fixed;
+width:100%;
+height:100%;
+background:
+radial-gradient(circle at 20% 20%, rgba(0,255,255,.15), transparent 30%),
+radial-gradient(circle at 80% 30%, rgba(140,0,255,.15), transparent 30%),
+radial-gradient(circle at 50% 80%, rgba(0,150,255,.15), transparent 30%);
+animation:bgMove 10s infinite alternate;
+z-index:-1;
+}
+
+@keyframes bgMove{
+from{transform:scale(1);}
+to{transform:scale(1.2);}
+}
+
+/* هدر */
+
+header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 8%;
+backdrop-filter:blur(10px);
+position:sticky;
+top:0;
+z-index:999;
+background:rgba(0,0,0,.25);
+}
+
+.logo{
+display:flex;
+align-items:center;
+gap:15px;
+}
+
+.logo img{
+width:70px;
+animation:float 3s infinite ease-in-out;
+}
+
+.logo h1{
+font-size:28px;
+background:linear-gradient(90deg,#00e5ff,#a855f7);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+nav a{
+text-decoration:none;
+color:white;
+margin:0 12px;
+transition:.3s;
+}
+
+nav a:hover{
+color:#00e5ff;
+}
+
+/* هیرو */
+
+.hero{
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+padding:50px 8%;
+gap:50px;
+flex-wrap:wrap;
+}
+
+.hero-text{
+max-width:650px;
+}
+
+.hero-text h2{
+font-size:60px;
+line-height:1.2;
+margin-bottom:15px;
+}
+
+.hero-text h2 span{
+background:linear-gradient(90deg,#00e5ff,#b026ff);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.hero-text p{
+font-size:22px;
+color:#d7d7d7;
+margin-bottom:25px;
+}
+
+.hero-btns{
+display:flex;
+gap:15px;
+flex-wrap:wrap;
+}
+
+.btn{
+padding:14px 28px;
+border:none;
+border-radius:50px;
+cursor:pointer;
+font-size:16px;
+text-decoration:none;
+transition:.4s;
+}
+
+.primary{
+background:linear-gradient(90deg,#00e5ff,#8a2be2);
+color:white;
+}
+
+.secondary{
+border:1px solid #00e5ff;
+color:#00e5ff;
+}
+
+.btn:hover{
+transform:translateY(-5px);
+box-shadow:0 0 25px rgba(0,255,255,.5);
+}
+
+.hero-image img{
+width:380px;
+animation:float 4s infinite ease-in-out;
+}
+
+@keyframes float{
+50%{
+transform:translateY(-20px);
+}
+}
+
+/* کارت‌ها */
+
+.section{
+padding:100px 8%;
+}
+
+.title{
+text-align:center;
+font-size:40px;
+margin-bottom:50px;
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+}
+
+.card{
+background:rgba(255,255,255,.05);
+border:1px solid rgba(255,255,255,.08);
+backdrop-filter:blur(12px);
+padding:30px;
+border-radius:20px;
+transition:.4s;
+}
+
+.card:hover{
+transform:translateY(-10px);
+box-shadow:0 0 30px rgba(0,255,255,.25);
+}
+
+.card h3{
+margin-bottom:15px;
+color:#00e5ff;
+}
+
+/* شبکه اجتماعی */
+
+.socials{
+display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
+margin-top:30px;
+}
+
+.socials a{
+padding:15px 25px;
+border-radius:50px;
+text-decoration:none;
+color:white;
+background:linear-gradient(90deg,#00bcd4,#8a2be2);
+transition:.3s;
+}
+
+.socials a:hover{
+transform:scale(1.08);
+}
+
+/* CTA */
+
+.cta{
+text-align:center;
+padding:100px 8%;
+}
+
+.cta a{
+display:inline-block;
+margin-top:20px;
+}
+
+/* فوتر */
+
+footer{
+padding:30px;
+text-align:center;
+background:rgba(255,255,255,.03);
+margin-top:50px;
+}
+
+/* ستاره‌های متحرک */
+
+.particle{
+position:absolute;
+width:4px;
+height:4px;
+background:#00ffff;
+border-radius:50%;
+animation:particles linear infinite;
+opacity:.8;
+}
+
+@keyframes particles{
+from{
+transform:translateY(0);
+opacity:1;
+}
+to{
+transform:translateY(-100vh);
+opacity:0;
+}
+}
+
+</style>
 </head>
-
 <body>
-
-<div class="background-glow"></div>
 
 <header>
 
-<nav class="navbar">
-
 <div class="logo">
-فوت و فن AI
+<img src="logo.png" alt="فوت و فن AI">
+<h1>فوت و فن AI</h1>
 </div>
 
-<ul>
-<li><a href="#">خانه</a></li>
-<li><a href="#">دوره‌ها</a></li>
-<li><a href="#">مقالات</a></li>
-<li><a href="#">ابزارها</a></li>
-<li><a href="#">درباره ما</a></li>
-</ul>
-
+<nav>
+<a href="#about">درباره ما</a>
+<a href="#services">آموزش‌ها</a>
+<a href="#social">شبکه‌های اجتماعی</a>
+<a href="#contact">ارتباط</a>
 </nav>
+
+</header>
 
 <section class="hero">
 
 <div class="hero-text">
-
-<h1>
-یادگیری هوش مصنوعی
-<br>
+<h2>
+یادگیری <span>هوش مصنوعی</span><br>
 به زبان ساده
-</h1>
+</h2>
 
 <p>
-آموزش هوش مصنوعی، پرامپت نویسی، تولید تصویر، ابزارهای کاربردی و سواد رسانه‌ای
+مرجع آموزش، اخبار، ابزارها و ترفندهای کاربردی هوش مصنوعی
 </p>
 
-<a href="#" class="btn">
-شروع یادگیری
-</a>
+<div class="hero-btns">
+<a href="#services" class="btn primary">شروع یادگیری</a>
+<a href="#social" class="btn secondary">شبکه‌های اجتماعی</a>
+</div>
 
 </div>
 
 <div class="hero-image">
+<img src="avatar.png" alt="آواتار فوت و فن AI">
+</div>
 
-<img src="assets/avatar.png">
+</section>
+
+<section class="section" id="services">
+
+<h2 class="title">آنچه در فوت و فن AI می‌آموزید</h2>
+
+<div class="cards">
+
+<div class="card">
+<h3>🚀 آموزش هوش مصنوعی</h3>
+<p>آموزش هوش مصنوعی از صفر تا حرفه‌ای به زبان ساده و کاربردی.</p>
+</div>
+
+<div class="card">
+<h3>💡 ابزارها و پرامپت‌ها</h3>
+<p>ترفندها، ابزارها و پرامپت‌های کاربردی برای افزایش بهره‌وری.</p>
+</div>
+
+<div class="card">
+<h3>🔥 اخبار AI</h3>
+<p>جدیدترین اخبار، ترندها و آموزش‌های دنیای هوش مصنوعی.</p>
+</div>
+
+<div class="card">
+<h3>📌 رسانه و سواد رسانه‌ای</h3>
+<p>مطالبی درباره رسانه، سواد رسانه‌ای و جهاد تبیین.</p>
+</div>
 
 </div>
 
 </section>
 
-</header>
+<section class="section" id="about">
 
-<section class="courses">
-
-<h2>دوره های آموزشی</h2>
-
-<div class="cards">
+<h2 class="title">درباره فوت و فن AI</h2>
 
 <div class="card">
-🎙
-<h3>شروع کار با هوش مصنوعی</h3>
-<p>7 جلسه آموزشی</p>
+<p style="font-size:18px;line-height:2;">
+فوت و فن AI یک رسانه آموزشی در حوزه هوش مصنوعی است که تلاش می‌کند
+مفاهیم پیچیده AI را به ساده‌ترین شکل ممکن آموزش دهد و آخرین اخبار،
+ابزارها و ترفندهای کاربردی را در اختیار مخاطبان قرار دهد.
+</p>
 </div>
 
-<div class="card">
-✍️
-<h3>پرامپت نویسی</h3>
-<p>10 جلسه آموزشی</p>
-</div>
+</section>
 
-<div class="card">
-🎨
-<h3>تولید تصویر با AI</h3>
-<p>8 جلسه آموزشی</p>
-</div>
+<section class="section" id="social">
+
+<h2 class="title">شبکه‌های اجتماعی</h2>
+
+<div class="socials">
+
+<a href="https://ble.ir/join/FV9bHmcMvc" target="_blank">
+بله
+</a>
+
+<a href="https://www.aparat.com/foot_fan_ai" target="_blank">
+آپارات
+</a>
 
 </div>
 
 </section>
 
-<section class="articles">
+<section class="cta" id="contact">
 
-<h2>آخرین مطالب</h2>
+<h2 class="title">ارسال سوال، نظر، انتقاد یا پیشنهاد</h2>
 
-<div class="cards">
+<p>
+از طریق فرم زیر با ما در ارتباط باشید.
+</p>
 
-<div class="card">
-هوش مصنوعی چیست؟
-</div>
-
-<div class="card">
-بهترین ابزارهای AI
-</div>
-
-<div class="card">
-آموزش ChatGPT
-</div>
-
-</div>
+<a
+href="https://survey.porsline.ir/s/V1xz7j95"
+target="_blank"
+class="btn primary">
+ارسال پیام
+</a>
 
 </section>
 
 <footer>
-
-<p>
-© Footofan AI
-</p>
-
+© 2025 فوت و فن AI | یادگیری هوش مصنوعی به زبان ساده
 </footer>
 
-<script src="js/script.js"></script>
+<script>
+
+/* تولید ستاره‌های متحرک */
+
+for(let i=0;i<70;i++){
+
+let star=document.createElement("div");
+
+star.classList.add("particle");
+
+star.style.left=Math.random()*100+"%";
+star.style.top=Math.random()*100+"%";
+
+star.style.animationDuration=
+(Math.random()*10+5)+"s";
+
+document.body.appendChild(star);
+
+}
+
+</script>
 
 </body>
-
 </html>
